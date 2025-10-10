@@ -7,8 +7,8 @@ BRANCH=${1:-developer}
   # default to dev if no argument
 
 IMAGE_NAME="mobile-catalog"
-DEVELOPER_REGISTRY = "harikumar1997/mobile-catalog-developer:${BRANCH}"
-PRODUCTION_REGISTRY = "harikumar1997/mobile-catalog-production:${BRANCH}"
+DEVELOPER_REGISTRY="harikumar1997/mobile-catalog-developer:${BRANCH}"
+PRODUCTION_REGISTRY="harikumar1997/mobile-catalog-production:${BRANCH}"
 
 echo "Building Docker image..."
 docker build -t $IMAGE_NAME:latest .
