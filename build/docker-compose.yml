@@ -1,7 +1,7 @@
-version: "3"
+version: "3.8"
 services:
-  reactapp:
-    build: .
+  app:
+    image: harikumar1997/mobile-catalog-developer:latest
     ports:
       - "80:80"
-    restart: always
+
