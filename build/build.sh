@@ -3,6 +3,7 @@
 set -e
 
 # Usage: ./build.sh <branch_name>
+BRANCH=${1:-developer}
   # default to dev if no argument
 
 IMAGE_NAME="mobile-catalog"
