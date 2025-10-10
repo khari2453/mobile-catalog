@@ -17,9 +17,9 @@ docker-compose down || true
 
 # Update docker-compose.yml dynamically
 if [ "$BRANCH" == "developer" ]; then
-    sed -i "s|image: .*|image: $DEVELOPER_IMAGE|" docker-compose.yml
+    sed -i "s|image: .*|image: $DEVELOPER_REGISTRY|" docker-compose.yml
 elif [ "$BRANCH" == "main" ]; then
-    sed -i "s|image: .*|image: $PRODUCTION_IMAGE|" docker-compose.yml
+    sed -i "s|image: .*|image: $PRODUCTION_REGISTRY|" docker-compose.yml
 fi
 
 # Start container
