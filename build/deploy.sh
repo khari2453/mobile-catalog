@@ -18,7 +18,7 @@ docker-compose down || true
 # Update docker-compose.yml dynamically
 if [ "$BRANCH" == "developer" ]; then
     sed -i "s|image: .*|image: $DEVELOPER_IMAGE|" docker-compose.yml
-elif [ "$BRANCH" == "master" ]; then
+elif [ "$BRANCH" == "main" ]; then
     sed -i "s|image: .*|image: $PRODUCTION_IMAGE|" docker-compose.yml
 fi
 
