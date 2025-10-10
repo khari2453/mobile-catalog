@@ -11,7 +11,7 @@ DEVELOPER_REGISTRY="harikumar1997/mobile-catalog-developer:${BRANCH}"
 PRODUCTION_REGISTRY="harikumar1997/mobile-catalog-production:${BRANCH}"
 
 echo "Building Docker image..."
-docker build -t $IMAGE_NAME:latest -f ./Dockerfile .
+docker build -t $IMAGE_NAME:latest -f build/Dockerfile .
 
 if [ "$BRANCH" == "developer" ]; then
     echo "Tagging image for developer repo..."
