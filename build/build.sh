@@ -15,10 +15,10 @@ docker build -t $IMAGE_NAME:latest -f build/Dockerfile .
 
 if [ "$BRANCH" == "developer" ]; then
     echo "Tagging image for developer repo..."
-    docker tag $IMAGE_NAME:latest $DEVELOPER_IMAGE
+    docker tag $IMAGE_NAME:latest $DEVELOPER_REGISTRY
 elif [ "$BRANCH" == "main" ]; then
     echo "Tagging image for prod repo..."
-    docker tag $IMAGE_NAME:latest $PRODUCTION_IMAGE
+    docker tag $IMAGE_NAME:latest $PRODUCTION_REGISTRY
 else
     echo "Unknown branch '$BRANCH'. Tagging as latest locally."
 fi
