@@ -11,6 +11,8 @@ IMAGE_NAME="mobile-catalog"
 DEVELOPER_REGISTRY="harikumar1997/mobile-catalog-developer:${BRANCH}"
 PRODUCTION_REGISTRY="harikumar1997/mobile-catalog-production:${BRANCH}"
 
+cd "$(dirname "$0")"
+
 # Stop previous container
 echo "Stopping old container if exists..."
 docker-compose down || true
