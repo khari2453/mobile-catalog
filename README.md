@@ -1,1 +1,3 @@
 # mobile-catalog
+
+auto trigger
