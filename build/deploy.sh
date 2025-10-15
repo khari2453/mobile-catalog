@@ -28,4 +28,4 @@ fi
 echo "Starting container..."
 docker-compose up -d
 
-echo "Deployment completed for branch $BRANCH!"
+echo "Deployment completed for branch ... $BRANCH!"
