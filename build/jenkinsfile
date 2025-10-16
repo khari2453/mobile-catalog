@@ -1,0 +1,66 @@
+pipeline {
+    agent any
+
+    environment {
+        DEVELOPER_REGISTRY = "harikumar1997/mobile-catalog-developer"
+        PRODUCTION_REGISTRY = "harikumar1997/mobile-catalog-production"
+        IMAGE_NAME = "mobile-catalog"
+        IMAGE_TAG = "latest"
+        BRANCH_NAME = "main"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/khari2453/Mobile-catalog.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'chmod +x build/build.sh'
+                sh 'build/build.sh'
+            }
+        }
+
+        stage('Push to DockerHub') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(
+                        credentialsId: 'dockerhub-creds',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )]) {
+                        sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
+
+                        if (env.BRANCH_NAME == 'developer') {
+                            sh "docker tag mobile-catalog:latest $DEVELOPER_REGISTRY:$IMAGE_TAG"
+                            sh "docker push $DEVELOPER_REGISTRY:$IMAGE_TAG"
+                        } else if (env.BRANCH_NAME == 'main') {
+                            sh "docker tag mobile-catalog:latest $PRODUCTION_REGISTRY:$IMAGE_TAG"
+                            sh "docker push $PRODUCTION_REGISTRY:$IMAGE_TAG"
+                        } else {
+                            echo "Branch is neither developer nor main. Skipping Docker push."
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'chmod +x build/deploy.sh'
+                sh 'build/deploy.sh'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Deployment completed successfully for branch ${env.BRANCH_NAME}!"
+        }
+        failure {
+            echo "❌ Pipeline failed. Check logs."
+        }
+    }
+}
