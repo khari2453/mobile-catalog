@@ -27,6 +27,32 @@
 
 
 # Step - 1
+
+<img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/github.png" alt="github"/>
+
+
+We Clone the github for the source code and we created docker file to run the application locally , we’ll make it run on port 80 so anyone can open it in a browser without typing the port.
+
+**Commands**
+
+ `git clone https://github.com/sriram-R-krishnan/devops-build.git`
+ `cd devops-build/`
+ `cd build/`
+ `vi Dockerfile`
+ `sudo yum install docker`
+ `sudo systemctl status docker`
+ `sudo systemctl start docker`
+ `sudo systemctl status docker`
+ `docker build -t mobile-catalog:latest .`
+ `docker images`
+ `docker run -itd -p 80:80 mobile-catalog`
+  `docker ps`
+
+
+<img width="1165" height="90" alt="image" src="https://github.com/user-attachments/assets/a16feae5-2de6-4f87-aebf-5be46f182d8f" />
+
+
+
 <img width="48" height="48" src="https://img.icons8.com/fluency/48/docker.png" alt="docker"/>
 
 # Createing Dockerfile
