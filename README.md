@@ -99,7 +99,11 @@ We created EC2 instance and installed jenkins to CICD process .
 * `sudo usermod -aG docker jenkins`
 * `sudo systemctl restart jenkins`
 
+
+
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/84e412e7-501b-40e4-b3bb-44879c1abc2f" />
+
+
 
 # Jenkins workflow
 Jenkins Setup: Jenkins is our automation engine. Every time code is pushed to GitHub, Jenkins will:
@@ -128,8 +132,14 @@ Jenkins Setup: Jenkins is our automation engine. Every time code is pushed to Gi
 - git merge developer
 - git push origin main
 
+  
+**NOTE: Developer branch merge to main branch jenkins pipeline is automatically trigger and push to the docker private repo .**
 
-# Step - 13
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/51c6317e-5344-443b-8e8b-a6c7749f97a5" />
+
+
+# Step - 7
+
 Installing grafana for better visualization tool
 
   - wget https://dl.grafana.com/grafana/release/12.2.0/grafana_12.2.0_17949786146_linux_amd64.tar.gz
