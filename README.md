@@ -99,6 +99,14 @@ We created EC2 instance and installed jenkins to CICD process .
 * `sudo usermod -aG docker jenkins`
 * `sudo systemctl restart jenkins`
 
+`Credentials`
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/27460bde-485e-40df-b598-ca28ab314cd3" />
+
+`plugins`
+- pipeline stage view
+- Docker
+- git
 
 
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/84e412e7-501b-40e4-b3bb-44879c1abc2f" />
@@ -115,6 +123,17 @@ Jenkins Setup: Jenkins is our automation engine. Every time code is pushed to Gi
 # Branch rules:
 -	Push to developer branch → image goes to developer repo.
 -	Merge into main → image goes to production repo.
+  
+# Jenkins pipeline flow
+
+*Useing build trigger option to auto trigger for jenkins from github*
+
+<img width="1366" height="2034" alt="image" src="https://github.com/user-attachments/assets/ebb41678-c623-4f14-bf26-66df2567d038" />
+
+
+# Output
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/30a1ffa5-cf6d-4ca4-9fa6-b39b445a38bb" />
 
 
 # Step - 6
@@ -137,8 +156,14 @@ Jenkins Setup: Jenkins is our automation engine. Every time code is pushed to Gi
 
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/51c6317e-5344-443b-8e8b-a6c7749f97a5" />
 
+**Github intergrated with jenkins via webhooks**
 
 # Step - 7
+
+# Output
+Docker hub private repo clone to the ec2 instance and runs on the browser.
+
+
 
 Installing grafana for better visualization tool
 
