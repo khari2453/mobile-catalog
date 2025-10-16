@@ -64,26 +64,55 @@ We Clone the github for the source code and we created docker file to run the ap
 *Docker Compose: Instead of running long Docker commands every time, Docker Compose gives us a simple config file.Docker to run our image and expose it on port 80.
 Show [docker-compose.yml]*
 
+
 # Step - 4
+
+<img width="48" height="48" src="https://img.icons8.com/fluency/48/docker.png" alt="docker"/>
+
+Createing public and private repo in DockerHub is like GitHub, but for images. 
+*developer (public) → anyone can see/test our dev builds [harikumar1997/mobile-catalog-developer]*
+*production (private) → only we control production builds [harikumar1997/mobile-catalog-production]*
+
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/70acc6d2-f791-4d70-93c7-e3fb95e90928" />
+
+
+
+# Step - 5
 <img width="48" height="48" src="https://img.icons8.com/color/48/jenkins.png" alt="jenkins"/>
 
 We created EC2 instance and installed jenkins to CICD process .
 
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/a5d5e749-e7e9-40e5-8fa1-2659117738c7" />
 
-*Jenkins installation steps*
-`**sudo amazon-linux-extras install java-openjdk11 -y
-   sudo yum update –y
-   sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo
-   sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-   sudo yum upgrade -y
-   sudo yum install java-21-amazon-corretto -y
-   sudo yum install jenkins -y
-   sudo systemctl enable jenkins
-   sudo systemctl start jenkins**
+# *Jenkins installation steps*
+
+* `sudo amazon-linux-extras install java-openjdk11 -y`
+* `sudo yum update –y`
+* `sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo`
+* `sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key`
+* `sudo yum upgrade -y`
+* `sudo yum install java-21-amazon-corretto -y`
+* `sudo yum install jenkins -y`
+* `sudo systemctl enable jenkins`
+* `sudo systemctl start jenkins`
+* `sudo usermod -aG docker jenkins`
+* `sudo systemctl restart jenkins`
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/84e412e7-501b-40e4-b3bb-44879c1abc2f" />
+# Jenkins workflow
+Jenkins Setup: Jenkins is our automation engine. Every time code is pushed to GitHub, Jenkins will:
+1.	Pull the latest code
+2.	Build the Docker image
+3.	Push the image to DockerHub
+# Branch rules:
+-	Push to developer branch → image goes to developer repo.
+-	Merge into main → image goes to production repo.
 
 
-# Step - 2
+
+
+# Step - 5
 <img width="32" height="32" src="https://img.icons8.com/external-kmg-design-outline-color-kmg-design/32/external-cloud-server-web-hosting-kmg-design-outline-color-kmg-design.png" alt="external-cloud-server-web-hosting-kmg-design-outline-color-kmg-design"/>
 
 # Createing EC2 Server 
