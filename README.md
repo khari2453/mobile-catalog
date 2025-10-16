@@ -21,7 +21,7 @@
 | Version Control	| Git , GitHub	| Store and manage source code; trigger pipeline via webhooks |
 | Containerization	| Docker ,DockerHub |	Build container images, store them, and deploy |
 | CI/CD	| Jenkins |	Automate build push, and deployment process |
-| Monitoring	| Prometheus Grafana (or alternative)	| Track app and cluster health |
+| Monitoring	| Prometheus Grafana | Track app and cluster health |
 | Cloud Provider	| AWS	| Host infrastructure (EC2, EKS, VPC, IAM) |
 
 
@@ -61,8 +61,7 @@ We Clone the github for the source code and we created docker file to run the ap
 
 <img width="48" height="48" src="https://img.icons8.com/fluency/48/docker.png" alt="docker"/>
 
-*Docker Compose: Instead of running long Docker commands every time, Docker Compose gives us a simple config file.Docker to run our image and expose it on port 80.
-Show [docker-compose.yml]*
+*Docker Compose: Instead of running long Docker commands every time, Docker Compose gives us a simple config file.Docker to run our image and expose it on port 80.*
 
 
 # Step - 4
@@ -99,11 +98,11 @@ We created EC2 instance and installed jenkins to CICD process .
 * `sudo usermod -aG docker jenkins`
 * `sudo systemctl restart jenkins`
 
-`Credentials`
+**Credentials**
 
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/27460bde-485e-40df-b598-ca28ab314cd3" />
 
-`plugins`
+**plugins**
 - pipeline stage view
 - Docker
 - git
@@ -189,6 +188,38 @@ Createing EC2 instance for deploy the application
 
 
 # Step - 8
+
+<img width="48" height="48" src="https://img.icons8.com/color/48/prometheus-app.png" alt="prometheus-app"/>
+
+Created EC2 instance and installed Monitoring tools Prometheus and grafana
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/99223b0e-4e40-4565-b31c-6dd21b6e96ed" />
+
+**Commands**
+- https://github.com/prometheus/prometheus/releases/download/v3.7.0/prometheus-3.7.0.linux-amd64.tar.gz
+- tar -xvzf prometheus-3.7.0.linux-amd64.tar.gz
+
+`We need to change the prometheus.yml file to add node exporter public ip`
+
+- ./prometheus --config.file=prometheus.yml
+
+<img width="846" height="451" alt="image" src="https://github.com/user-attachments/assets/1efe3f9b-a21a-4c07-bf35-90d4de24fba7" />
+
+**Prometheus runs on port no 9090**
+
+<img width="1366" height="1509" alt="image" src="https://github.com/user-attachments/assets/c6345028-a83e-413b-9dba-786cbf57e74b" />
+
+`We installed node exporter where the application is running on the EC2 instance`
+
+**Commands**
+
+- https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
+- sudo tar -xvzf node_exporter-1.9.1.linux-amd64.tar.gz
+- cd node_exporter-1.9.1.linux-amd64/
+- ./node_exporter $
+
+**Node exporter runs on port no 9100**
+<img width="1148" height="577" alt="image" src="https://github.com/user-attachments/assets/9c942ca4-6072-4b45-a117-b9f468f9b503" />
 
 
 Installing grafana for better visualization tool
