@@ -201,9 +201,9 @@ Created EC2 instance and installed Monitoring tools Prometheus and grafana
 
 `We need to change the prometheus.yml file to add node exporter public ip`
 
-- ./prometheus --config.file=prometheus.yml
-
 <img width="846" height="451" alt="image" src="https://github.com/user-attachments/assets/1efe3f9b-a21a-4c07-bf35-90d4de24fba7" />
+
+- ./prometheus --config.file=prometheus.yml
 
 **Prometheus runs on port no 9090**
 
@@ -219,18 +219,39 @@ Created EC2 instance and installed Monitoring tools Prometheus and grafana
 - ./node_exporter $
 
 **Node exporter runs on port no 9100**
+
 <img width="1148" height="577" alt="image" src="https://github.com/user-attachments/assets/9c942ca4-6072-4b45-a117-b9f468f9b503" />
+
+**Installing alert manager in application running EC2 instance and configured in prometheus monitoring instance**
+
+**Commands**
+
+- wget https://github.com/prometheus/alertmanager/releases/download/v0.28.1/alertmanager-0.28.1.linux-amd64.tar.gz
+- sudo tar -xvzf alertmanager-0.28.1.linux-amd64.tar.gz
+- cd alertmanager-0.28.1.linux-amd64/
+
+**Alert Manager runs on port no 9093**
+
+<img width="1356" height="540" alt="image" src="https://github.com/user-attachments/assets/75c21ec6-79fd-4811-8e81-17769bf97121" />
+
+**Prometheus Console in Alert manager configration setup**
+
+<img width="1357" height="306" alt="image" src="https://github.com/user-attachments/assets/ee419a81-32d1-4611-9525-ebb6824699ed" />
+
+
+# Step - 9
 
 
 Installing grafana for better visualization tool
 
+**Commands**
   - wget https://dl.grafana.com/grafana/release/12.2.0/grafana_12.2.0_17949786146_linux_amd64.tar.gz
   - tar -zxvf grafana_12.2.0_17949786146_linux_amd64.tar.gz~
   - cd grafana-12.2.0/
   - cd bin
   - ./grafana-server &
-
-    `Grafana runs on the port no 3000` we need to open the port no 3000 on the server .
+  
+  `Grafana runs on the port no 3000` we need to open the port no 3000 on the server .
 
     <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/f6084750-c888-4fc2-9de6-b86140aea47e" />
 
