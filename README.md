@@ -33,27 +33,46 @@
 
 We Clone the github for the source code and we created docker file to run the application locally , we’ll make it run on port 80 so anyone can open it in a browser without typing the port.
 
+# Step -2 
+
+<img width="48" height="48" src="https://img.icons8.com/fluency/48/docker.png" alt="docker"/>
+
+**Dockerize the App**
+
 **Commands**
 
  * `git clone https://github.com/sriram-R-krishnan/devops-build.git`
  * `cd devops-build/` 
  * `cd build/`
- `vi Dockerfile`
- `sudo yum install docker`
- `sudo systemctl status docker`
- `sudo systemctl start docker`
- `sudo systemctl status docker`
- `docker build -t mobile-catalog:latest .`
- `docker images`
- `docker run -itd -p 80:80 mobile-catalog`
-  `docker ps`
+ * `vi Dockerfile`
+ * `sudo yum install docker`
+ * `sudo systemctl status docker`
+ * `sudo systemctl start docker`
+ * `sudo systemctl status docker`
+ * `docker build -t mobile-catalog:latest .`
+ * `docker images`
+ * `docker run -itd -p 80:80 mobile-catalog`
+ *  `docker ps`
 
 
 <img width="1165" height="90" alt="image" src="https://github.com/user-attachments/assets/a16feae5-2de6-4f87-aebf-5be46f182d8f" />
 
-
+# Step - 3
 
 <img width="48" height="48" src="https://img.icons8.com/fluency/48/docker.png" alt="docker"/>
+
+*Docker Compose: Instead of running long Docker commands every time, Docker Compose gives us a simple config file.Docker to run our image and expose it on port 80.
+Show [docker-compose.yml]*
+
+# Step - 4
+<img width="48" height="48" src="https://img.icons8.com/color/48/jenkins.png" alt="jenkins"/>
+
+We created EC2 instance and installed jenkins to CICD process .
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/a5d5e749-e7e9-40e5-8fa1-2659117738c7" />
+
+*Jenkins installation steps*
+
 
 # Createing Dockerfile
 After createing the docker file we need to check the application is running on the localhost with the port no 3000
