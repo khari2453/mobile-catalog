@@ -35,9 +35,9 @@ We Clone the github for the source code and we created docker file to run the ap
 
 **Commands**
 
- `git clone https://github.com/sriram-R-krishnan/devops-build.git`
- `cd devops-build/` \n
- `cd build/`
+ * `git clone https://github.com/sriram-R-krishnan/devops-build.git`
+ * `cd devops-build/` 
+ * `cd build/`
  `vi Dockerfile`
  `sudo yum install docker`
  `sudo systemctl status docker`
