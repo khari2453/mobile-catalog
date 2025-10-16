@@ -156,13 +156,39 @@ Jenkins Setup: Jenkins is our automation engine. Every time code is pushed to Gi
 
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/51c6317e-5344-443b-8e8b-a6c7749f97a5" />
 
+
+
 **Github intergrated with jenkins via webhooks**
+
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/8977ff25-f770-483f-9b7b-0a5d443da9e6" />
+
 
 # Step - 7
 
 # Output
+
 Docker hub private repo clone to the ec2 instance and runs on the browser.
 
+Createing EC2 instance for deploy the application
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/876f53b1-1522-424c-8d21-b4400df2a4c5" />
+
+
+**Installed docker on the EC2 instance**
+
+**Commands**
+ - docker login
+ - docker images
+ - docker run -d -p 80:80 harikumar1997/mobile-catalog-production:latest
+ - docker ps
+
+**Browser Output**
+
+<img width="1362" height="691" alt="image" src="https://github.com/user-attachments/assets/c82e02fb-13e9-4460-8e23-8bc416b9e881" />
+
+
+# Step - 8
 
 
 Installing grafana for better visualization tool
