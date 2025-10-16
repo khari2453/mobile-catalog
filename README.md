@@ -72,13 +72,16 @@ We created EC2 instance and installed jenkins to CICD process .
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/a5d5e749-e7e9-40e5-8fa1-2659117738c7" />
 
 *Jenkins installation steps*
+`**sudo amazon-linux-extras install java-openjdk11 -y
+   sudo yum update –y
+   sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo
+   sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+   sudo yum upgrade -y
+   sudo yum install java-21-amazon-corretto -y
+   sudo yum install jenkins -y
+   sudo systemctl enable jenkins
+   sudo systemctl start jenkins**
 
-
-# Createing Dockerfile
-After createing the docker file we need to check the application is running on the localhost with the port no 3000
-
-` docker build -t trend-app:latest .`
-`docker run -d -p 3000:80 --name trend-app trend-app:latest `
 
 # Step - 2
 <img width="32" height="32" src="https://img.icons8.com/external-kmg-design-outline-color-kmg-design/32/external-cloud-server-web-hosting-kmg-design-outline-color-kmg-design.png" alt="external-cloud-server-web-hosting-kmg-design-outline-color-kmg-design"/>
