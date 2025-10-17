@@ -255,7 +255,8 @@ Installing grafana for better visualization tool
 
     <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/f6084750-c888-4fc2-9de6-b86140aea47e" />
 
-# step - 14 
+# step - 10
+
 Git commands
 git add .
 git commit -m "final commit "
