@@ -251,18 +251,13 @@ Installing grafana for better visualization tool
   - cd bin
   - ./grafana-server &
   
-  `Grafana runs on the port no 3000` we need to open the port no 3000 on the server .
+  `Grafana runs on the port no 3000` we need to open the port no 3000 on the server .`
+
+  <img width="1366" height="1525" alt="image" src="https://github.com/user-attachments/assets/81967bad-84fb-439c-9057-73806e94059c" />
+
 
     <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/f6084750-c888-4fc2-9de6-b86140aea47e" />
 
-# step - 10
-
-Git commands
-git add .
-git commit -m "final commit "
-git push origin main
-
- **End-to-End Flow Recap:** `First, the developer pushes the static app to GitHub. GitHub triggers Jenkins automatically. Jenkins builds the Docker image, pushes it to DockerHub, and deploys it to Kubernetes on AWS EKS. The LoadBalancer exposes the app to the internet so users can access it, and monitoring ensures the app stays healthy. The whole process is automated, consistent, and production-ready. That’s the power of CI/CD, containerization, and Kubernetes working together .`
 
 
-<img width="1366" height="1312" alt="image" src="https://github.com/user-attachments/assets/f7f1de9c-eab7-4392-a828-368e69328119" />
+
