@@ -256,7 +256,7 @@ Installing grafana for better visualization tool
   <img width="1366" height="1525" alt="image" src="https://github.com/user-attachments/assets/81967bad-84fb-439c-9057-73806e94059c" />
 
 
-    <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/f6084750-c888-4fc2-9de6-b86140aea47e" />
+   <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/f6084750-c888-4fc2-9de6-b86140aea47e" />
 
 
 
