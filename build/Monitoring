@@ -1,0 +1,81 @@
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is                                                                                         every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is eve                                                                                        ry 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+ Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - :9093
+
+# Load rules once and periodically evaluate them according to the global 'evalua                                                                                        tion_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped                                                                                         from this config.
+  - job_name: "prometheus"
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+      - targets: ["localhost:9090"]
+       # The label name is added as a label `label_name=<label_value>` to any ti                                                                                        meseries scraped from this config.
+        labels:
+          app: "prometheus"
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped                                                                                         from this config.
+  - job_name: "mobile-catalog"
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+ static_configs:
+      - targets: ["54.92.215.59:9100"]
+       # The label name is added as a label `label_name=<label_value>` to any ti                                                                                        meseries scraped from this config.
+        labels:
+          app: "prometheus"
+  - job_name: "alert-manager"
+    static_configs:
+       - targets: ["54.92.215.59:9093"]  
+         labels:
+           instance_id: 'i-096bcd69043f07980'
+
+
+----------------------------------------------------------------------------------------------------------------
+
+alertmanger.yml file in application deployed server.
+
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'email_notification'
+
+receivers:
+  - name: 'email_notification'
+    email_configs:
+      - to: 'khari2453@gmail.com'
+        from: 'khari2453@gmail.com'
+        smarthost: 'smtp.gmail.com:587'
+        auth_username: 'khari2453@gmail.com'
+        auth_identity: 'khari2453@gmail.com'
+        auth_password: 'msuh pasv bqkp xeoh'
+        send_resolved: true
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
+
